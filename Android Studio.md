@@ -137,23 +137,6 @@ if (kDebugMode) {
 }
 ```
 
-`Create BlocObserver with Crashlytics`
-```dart
-class _MainBlocObserver extends BlocObserver {
-/* INIT Bloc.observer
-if (kDebugMode) {
-  Bloc.observer = _MainBlocObserver();
-}
-*/
-  @override
-  Future<void> onError(BlocBase bloc, Object error, StackTrace stackTrace) async {
-    super.onError(bloc, error, stackTrace);
-    await FirebaseCrashlytics.instance
-        .recordError(error, stackTrace, reason: 'Crash in bloc: ${bloc.runtimeType} , state: ${bloc.state}');
-  }
-}
-```
-
 ## Live Templates Freezed
 
 `Generate Freezed class`
